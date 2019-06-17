@@ -20,7 +20,7 @@ class Dataset(Dataset):
         return self.data_len
     
 class dataset_dataloader:
-    def __init__ (self,pre_path,is_whole,is_cross,method,cross_number_for_test=1,batchsize=24,numworkers=2):
+    def __init__ (self,pre_path,is_whole,is_cross,method,cross_number_for_test=1,batch_size=24,numworkers=2):
         #pre_path = "wafer_img"
         if is_cross==False:
             import pandas as pd
@@ -88,7 +88,7 @@ class dataset_dataloader:
 
             train_data = Dataset(train_x,train_y)
             train_loader = DataLoader(dataset=train_data,
-                                      batch_size=24,
+                                      batch_size=batch_size,
                                       shuffle=True,
                                       num_workers=2)
             self.train_x=train_x
@@ -141,8 +141,15 @@ class dataset_dataloader:
             #         break
             test_x = Variable(torch.from_numpy(np.array(lst2)).float()).cuda()
             test_y = torch.LongTensor(np.array(y)).cuda()
+            test_data = Dataset(test_x,test_y)
+            test_loader = DataLoader(dataset=test_data,
+                                      batch_size=batch_size,
+                                      shuffle=True,
+                                      num_workers=0)
             self.test_x=test_x
-            self.test_y=test_y        
+            self.test_y=test_y
+            self.test_loader=test_loader
+        
 
             print("done")
             
@@ -222,7 +229,7 @@ class dataset_dataloader:
 
             train_data = Dataset(train_x,train_y)
             train_loader = DataLoader(dataset=train_data,
-                                      batch_size=24,
+                                      batch_size=batch_size,
                                       shuffle=True,
                                       num_workers=2)
             self.train_x=train_x
@@ -275,11 +282,17 @@ class dataset_dataloader:
             #         break
             test_x = Variable(torch.from_numpy(np.array(lst2)).float()).cuda()
             test_y = torch.LongTensor(np.array(y)).cuda()
+            test_data = Dataset(test_x,test_y)
+            test_loader = DataLoader(dataset=test_data,
+                                      batch_size=batch_size,
+                                      shuffle=True,
+                                      num_workers=0)
             self.test_x=test_x
-            self.test_y=test_y        
+            self.test_y=test_y
+            self.test_loader=test_loader   
 
             print("done")
             
         
-print("color 1 channel Function setting done")
+print("batch6 color 1 channel Function setting done")
 

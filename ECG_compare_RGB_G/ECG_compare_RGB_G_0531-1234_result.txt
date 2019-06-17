@@ -1,0 +1,49 @@
+### File
+
+D:\Thesis\pytorch\ECG_compare_RGB_G.csv
+
+### Medians and descriptive statistics
+
+      group  n     mean        sd min  Q1 median  Q3 max
+1 Grayscale 60 7.541667 1.4417846 4.5 6.0      8 8.5  10
+2       RGB 60 5.991667 0.8259133 3.5 5.5      6 6.5   9
+
+### Normality test
+
+Group: Grayscale, Kolmogorov-Smirnov normality test D = 0.1551391 p-value = 0.1113361
+Group: RGB, Kolmogorov-Smirnov normality test D = 0.1959748 p-value = 0.01992881
+
+### Test for Homogeneity of Variance
+
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(>F)    
+group   1  17.394 5.827e-05 ***
+      118                      
+---
+Signif. codes:  0 ．***・ 0.001 ．**・ 0.01 ．*・ 0.05 ．.・ 0.1 ． ・ 1
+
+Data are heteroscedastic. Excute Welch's anova.
+
+### Welch's anova for unequal variances
+
+	One-way analysis of means (not assuming equal variances)
+
+data:  value and group
+F = 52.212, num df = 1.000, denom df = 93.957, p-value = 1.299e-10
+
+### Games-Howell Post-Hoc Test
+
+### Oneway Anova for y=value and x=group (groups: Grayscale, RGB)
+
+Omega squared: 95% CI = [.18; .42], point estimate = .3
+Eta Squared: 95% CI = [.2; .4], point estimate = .31
+
+                                    SS  Df    MS     F     p
+Between groups (error + effect)  72.08   1 72.08 52.21 <.001
+Within groups (error only)      162.89 118  1.38            
+
+
+### Post hoc test: games-howell
+
+               diff ci.lo ci.hi    t    df     p
+RGB-Grayscale -1.55 -1.98 -1.12 7.23 93.96 <.001

@@ -1,0 +1,37 @@
+### File
+
+D:\Thesis\pytorch\WAFER_compare_RGB_VGG_simpleCNN_1.csv
+
+### Medians and descriptive statistics
+
+          group  n      mean        sd       min        Q1    median        Q3       max
+1 RGB_simpleCNN 60 0.4694177 0.2825358 0.1680672 0.3356950 0.4194649 0.5028855 2.4278331
+2     RGB_VGG16 60 0.4637755 0.1421686 0.1666667 0.3356957 0.4355707 0.5854283 0.8375292
+
+### Normality test
+
+Group: RGB_simpleCNN, Kolmogorov-Smirnov normality test D = 0.2686609 p-value = 0.0002580787
+Group: RGB_VGG16, Kolmogorov-Smirnov normality test D = 0.1242406 p-value = 0.288085
+
+### Test for Homogeneity of Variance
+
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(>F)
+group   1  0.0953 0.7581
+      118               
+
+Data are homoscedastic. Excute Kruskal-Wallis test.
+
+### Kruskal-Wallis test for equal variances
+
+	Kruskal-Wallis rank sum test
+
+data:  value by group
+Kruskal-Wallis chi-squared = 0.026474, df = 1, p-value = 0.8707
+
+Eta squared: 0.000222469152950495
+
+### Dunn test
+
+                 Comparison          Z   P.unadj     P.adj
+1 RGB_simpleCNN - RGB_VGG16 -0.1627078 0.8707485 0.8707485

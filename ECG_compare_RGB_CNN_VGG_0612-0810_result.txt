@@ -1,0 +1,49 @@
+### File
+
+D:\Thesis\pytorch\ECG_compare_RGB_CNN_VGG.csv
+
+### Medians and descriptive statistics
+
+          group  n     mean        sd min  Q1 median  Q3 max
+1 RGB_simpleCNN 60 5.991667 0.8259133 3.5 5.5      6 6.5 9.0
+2     RGB_VGG16 60 5.991667 0.9807109 4.5 5.5      6 6.5 8.5
+
+### Normality test
+
+Group: RGB_simpleCNN, Kolmogorov-Smirnov normality test D = 0.1959748 p-value = 0.01992881
+Group: RGB_VGG16, Kolmogorov-Smirnov normality test D = 0.141933 p-value = 0.1781802
+
+### Test for Homogeneity of Variance
+
+Levene's Test for Homogeneity of Variance (center = median)
+       Df F value  Pr(>F)  
+group   1  5.2941 0.02315 *
+      118                  
+---
+Signif. codes:  0 ．***・ 0.001 ．**・ 0.01 ．*・ 0.05 ．.・ 0.1 ． ・ 1
+
+Data are heteroscedastic. Excute Welch's anova.
+
+### Welch's anova for unequal variances
+
+	One-way analysis of means (not assuming equal variances)
+
+data:  value and group
+F = 1.186e-28, num df = 1.00, denom df = 114.68, p-value = 1
+
+### Games-Howell Post-Hoc Test
+
+### Oneway Anova for y=value and x=group (groups: RGB_simpleCNN, RGB_VGG16)
+
+Omega squared: 95% CI = [NA; NA], point estimate = -.01
+Eta Squared: 95% CI = [0; NA], point estimate = 0
+
+                                   SS  Df   MS F p
+Between groups (error + effect)     0   1    0 0 1
+Within groups (error only)      96.99 118 0.82    
+
+
+### Post hoc test: games-howell
+
+                        diff ci.lo ci.hi t     df p
+RGB_VGG16-RGB_simpleCNN    0 -0.33  0.33 0 114.68 1

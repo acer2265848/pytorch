@@ -1,0 +1,41 @@
+### File
+
+D:\Thesis\pytorch\wafer_RGB.csv
+
+### Medians and descriptive statistics
+
+  group  n      mean        sd       min        Q1    median        Q3       max
+1  gasf 20 0.5739276 0.4594367 0.1680672 0.4190268 0.5027982 0.6070520 2.4278331
+2  gadf 20 0.4363069 0.1073904 0.2517492 0.3357828 0.4194649 0.5032348 0.6708654
+3   mtf 20 0.3980187 0.0851476 0.2517492 0.3354312 0.3770979 0.4401231 0.5861315
+
+### Normality test
+
+Group: gasf, Shapiro-Wilk normality test W = 0.5273461 p-value = 5.67445e-07
+Group: gadf, Shapiro-Wilk normality test W = 0.9103245 p-value = 0.06464924
+Group: mtf, Shapiro-Wilk normality test W = 0.8795141 p-value = 0.01734021
+
+### Test for Homogeneity of Variance
+
+Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(>F)
+group  2  1.6598 0.1992
+      57               
+
+Data are homoscedastic. Excute Kruskal-Wallis test.
+
+### Kruskal-Wallis test for equal variances
+
+	Kruskal-Wallis rank sum test
+
+data:  value by group
+Kruskal-Wallis chi-squared = 8.0881, df = 2, p-value = 0.01753
+
+Eta squared: 0.137087007478513
+
+### Dunn test
+
+   Comparison         Z     P.unadj      P.adj
+1 gadf - gasf -0.694085 0.487628885 0.48762888
+2  gadf - mtf  2.041427 0.041208446 0.06181267
+3  gasf - mtf  2.735512 0.006228339 0.01868502
